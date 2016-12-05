@@ -1,0 +1,200 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "base";
+@import "func";
+@import "font";
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+* {
+    max-height: 99999999999999px;
+}
+
+.hide {
+    display: none;
+}
+
+.clearfix {
+    &::after {
+        content: '';
+        display: table;
+    }
+}
+
+
+.result-container {
+    position: absolute;
+    width: 100%;
+    top: px2rem(90px);
+    bottom: px2rem(120px);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.mask-layer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.loading-icon {
+    position: absolute;
+    width: px2rem(200px);
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
+    z-index: 3;
+}
+
+//.result-item-container {
+//
+//}
+
+.result-item {
+    padding: px2rem(30px) px2rem(87px) px2rem(37.5px) px2rem(172px);
+    //padding: px2rem(30px);
+    border-bottom: 1px solid #d9d9d9;
+    img {
+        float: left;
+        width: px2rem(112px);
+        margin-left: px2rem(-142px);
+        margin-top: px2rem(10px);
+    }
+    h3 {
+        line-height: 1.5;
+    }
+    p {
+        line-height: 1.2;
+    }
+}
+
+.download-icon {
+    float: right;
+    margin-top: px2rem(30px);
+    img {
+        width: px2rem(47px);
+    }
+}
+
+.filename {
+    @include px2px(font-size, 32px);
+    font-weight: bold;
+    color: #292929;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.file-thumb-info {
+    //font-size: 0;
+    @include px2px(font-size, 28px);
+    color: #292929;
+    margin-top: px2rem(12px);
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    //span {
+    //    @include px2px(font-size, 32px);
+    //    margin-right: 5px;
+    //}
+}
+
+.file-download-info {
+    margin-top: px2rem(12px);
+    @include px2px(font-size, 24px);
+    color: #aaaaaa;
+}
+
+.file-thumb-content {
+    margin-top: px2rem(15px);
+    @include px2px(font-size, 28px);
+    line-height: 1.2;
+    color: #737373;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.load-more-container {
+    padding: px2rem(20px);
+    text-align: center;
+}
+
+.load-more-report {
+    display: inline-block;
+    @include px2px(font-size, 32px);
+    color: #aaaaaa;
+    background-color: #ececec;
+    border-radius: 10px;
+    @include px2px(padding, 12px);
+}
+
+.end-line {
+    margin-top: px2rem(30px);
+    margin-bottom: px2rem(30px);
+    border-top: 1px solid #ccc;
+    position: relative;
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translate(-50%, -50%);
+        padding: px2rem(10px);
+        color: #aaa;
+        background: #fff;
+        @include px2px(font-size, 32px);
+    }
+}
+
+.not-found-report {
+    position: absolute;
+    width: px2rem(400px);
+    top: 40%;
+    left: 50%;
+    @include translate(-50%, -50%);
+}
+
+.pc-hint {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: px2rem(120px);
+    padding: px2rem(20px) px2rem(45px);
+    @include box-sizing(border-box);
+    //overflow: scroll;
+    //-webkit-overflow-scrolling: touch;
+    background-color: #1a5da8;
+    img {
+        position: absolute;
+        left: px2rem(45px);
+        top: 50%;
+        @include translateY(-50%);
+        height: px2rem(81px);
+    }
+    & > div {
+        padding-left: px2rem(125px);
+    }
+    p {
+        //@include px2px(font-size, 30px);
+        font-size: px2rem(30px);
+        color: #fff;
+        //line-height: 1.5;
+        &:nth-of-type(1) {
+            margin-bottom: px2rem(20px);
+        }
+    }
+}

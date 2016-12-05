@@ -1,0 +1,88 @@
+@import "../../scss/func";
+
+#search {
+  position: relative;
+  height: px2rem(90px);
+  background-color: #ececec;
+  padding: 0 px2rem(24px) 0 px2rem(80px);
+  box-sizing: border-box;
+  font-size: 0;
+  border-bottom: 1px solid #d9d9d9;
+  &::before {
+    content: '.';
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+    visibility: hidden;
+  }
+}
+
+.back-home {
+  position: absolute;
+  left: px2rem(40px);
+  top: 50%;
+  height: px2rem(90px);
+  width: px2rem(80px);
+  line-height: px2rem(90px);
+  text-align: center;
+  transform: translate(-50%, -50%);
+  &::before {
+    content: '\e901';
+    font-family: 'icomoon';
+    color: #c9c9c9;
+    font-size: px2rem(45px);
+  }
+}
+
+.search-input-field {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: px2rem(60px);
+  vertical-align: middle;
+
+  &::before {
+    content: '\e900';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'icomoon';
+    color: #c9c9c9;
+    font-size: px2rem(35px);
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    color: #6e6e6f;
+    vertical-align: middle;
+    padding-left: px2rem(60px);
+    font-size: px2rem(32px);
+    //@include px2px(font-size, 32px);
+    box-sizing: border-box;
+  }
+}
+
+.cancel-btn {
+  display: inline-block;
+  vertical-align: middle;
+  @include px2px(font-size, 32px);
+  //font-size: px2rem(32px);
+  color: #6e6e6f;
+  margin-left: px2rem(20px);
+  display: none;
+}
+
+.show-cancel-btn {
+  .search-input-field {
+    width: 85%;
+  }
+
+  .cancel-btn {
+    display: inline-block;
+  }
+}
