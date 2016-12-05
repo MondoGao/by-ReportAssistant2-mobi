@@ -1,0 +1,19 @@
+@import "~src/scss/func";
+
+.result-item {
+  padding: px2rem(30px) px2rem(87px) px2rem(37.5px) px2rem(172px);
+  //padding: px2rem(30px);
+  border-bottom: 1px solid #d9d9d9;
+  img {
+    float: left;
+    width: px2rem(112px);
+    margin-left: px2rem(-142px);
+    margin-top: px2rem(10px);
+  }
+  h3 {
+    line-height: 1.5;
+  }
+  p {
+    line-height: 1.2;
+  }
+}

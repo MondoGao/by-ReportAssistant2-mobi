@@ -16,6 +16,22 @@ npm run build
 ```
 
 ## 更新记录
+### Unreleased
+#### Added
+- 使用 vue-router 进行至详情页的切换
+- 根据路由情况调整组件层级，增加 Index 模块和 ReportDetail 模块
+- 完成详情页 ReportInfo, ReportPreview, ReportDownload 组件的样式和功能
+
+### 0.1.0 - 2016-12-05
+#### Added
+- 完成首页的 Header 的功能及样式
+- 完成 ReportList 模块及其下属模块 ListItem 的功能及样式
+- 使用 vm._bus(is an instance of Vue) 进行非父子组件信息传输，该组件第一次注册位置在 App.vue
+- 添加一些动画
+
+#### Changed
+- 更改了 eslint 的配置，关闭了部分警告
+
 ### 0.0.1 - 2016-12-05
 #### Added
 - 搭建 vue 开发环境

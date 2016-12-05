@@ -1,32 +1,24 @@
-@import "../../scss/func";
+@import "~src/scss/func";
 
 #search {
-  position: relative;
+  position: absolute;
+  display: inline-table;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: px2rem(90px);
   background-color: #ececec;
-  padding: 0 px2rem(24px) 0 px2rem(80px);
-  box-sizing: border-box;
   font-size: 0;
   border-bottom: 1px solid #d9d9d9;
-  &::before {
-    content: '.';
-    display: inline-block;
-    height: 100%;
-    width: 0;
-    vertical-align: middle;
-    visibility: hidden;
-  }
 }
 
 .back-home {
-  position: absolute;
-  left: px2rem(40px);
-  top: 50%;
-  height: px2rem(90px);
+  display: table-cell;
   width: px2rem(80px);
-  line-height: px2rem(90px);
+  vertical-align: middle;
   text-align: center;
-  transform: translate(-50%, -50%);
+
+  // 删除高度，高度加伪元素会导致父元素被撑大，原因是由于内部元素 baseline 对齐
   &::before {
     content: '\e901';
     font-family: 'icomoon';
@@ -36,10 +28,9 @@
 }
 
 .search-input-field {
-  display: inline-block;
+  display: table-cell;
   position: relative;
-  width: 100%;
-  height: px2rem(60px);
+  width: auto;
   vertical-align: middle;
 
   &::before {
@@ -55,34 +46,28 @@
 
   input {
     width: 100%;
-    height: 100%;
+    height:  px2rem(60px);
+    line-height: px2rem(60px);
     border: 1px solid #d9d9d9;
     border-radius: 5px;
     color: #6e6e6f;
-    vertical-align: middle;
     padding-left: px2rem(60px);
     font-size: px2rem(32px);
-    //@include px2px(font-size, 32px);
     box-sizing: border-box;
   }
 }
 
 .cancel-btn {
-  display: inline-block;
+  display: table-cell;
   vertical-align: middle;
-  @include px2px(font-size, 32px);
-  //font-size: px2rem(32px);
+  font-size: 0;
   color: #6e6e6f;
-  margin-left: px2rem(20px);
-  display: none;
-}
-
-.show-cancel-btn {
-  .search-input-field {
-    width: 85%;
-  }
-
-  .cancel-btn {
-    display: inline-block;
+  @include px2px(font-size, 32px);
+  text-indent: px2rem(-100px);
+  transition: text-indent .3s, padding .3s;
+  &.show {
+    text-indent: 0;
+    padding-left: px2rem(10px);
   }
 }
+

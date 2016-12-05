@@ -62,12 +62,13 @@
 @mixin reset-box-model {
   margin: 0;
   padding: 0;
-  border: 0; }
+  border: 0;
+  box-sizing: border-box}
 
 // Reset the font and vertical alignment.
 @mixin reset-font {
-  font: inherit;
-  font-size: 100%;
+  //font: inherit;
+  //font-size: 100%;
   vertical-align: baseline; }
 
 // Resets the outline when focus.

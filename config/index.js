@@ -21,7 +21,11 @@ module.exports = {
     port: 8080,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      "/list": {target: "http://report.hustonline.net", changeOrigin: true},
+      "/document_detail": {target: "http://report.hustonline.net", changeOrigin: true},
+      "/mobi/": {target: "http://report.hustonline.net", changeOrigin: true}
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

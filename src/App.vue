@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import Header from './components/Header/Header'
 import ReportList from './components/ReportList/ReportList'
 
@@ -14,6 +15,9 @@ export default {
   components: {
     'header-search': Header,
     'report-list': ReportList
+  },
+  created: function () {
+    this.$root._bus = new Vue()
   }
 }
 </script>

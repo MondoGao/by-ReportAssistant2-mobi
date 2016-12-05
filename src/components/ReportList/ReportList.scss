@@ -1,51 +1,27 @@
-@import "../../scss/func";
+@import "~src/scss/func";
 
 .result-container {
   position: absolute;
   width: 100%;
   top: px2rem(90px);
-  bottom: px2rem(120px);
+  bottom: 0;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
 .mask-layer {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: px2rem(90px);
   bottom: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 2;
-}
-
-.loading-icon {
-  position: absolute;
-  width: px2rem(200px);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-}
-
-//.result-item-container {
-//
-//}
-
-.result-item {
-  padding: px2rem(30px) px2rem(87px) px2rem(37.5px) px2rem(172px);
-  //padding: px2rem(30px);
-  border-bottom: 1px solid #d9d9d9;
-  img {
-    float: left;
-    width: px2rem(112px);
-    margin-left: px2rem(-142px);
-    margin-top: px2rem(10px);
-  }
-  h3 {
-    line-height: 1.5;
-  }
-  p {
-    line-height: 1.2;
+  .loading-icon {
+    position: absolute;
+    width: px2rem(200px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -76,11 +52,6 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-
-  //span {
-  //    @include px2px(font-size, 32px);
-  //    margin-right: 5px;
-  //}
 }
 
 .file-download-info {
@@ -141,34 +112,3 @@
   transform: translate(-50%, -50%);
 }
 
-.pc-hint {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: px2rem(120px);
-  padding: px2rem(20px) px2rem(45px);
-  box-sizing: border-box;
-  //overflow: scroll;
-  //-webkit-overflow-scrolling: touch;
-  background-color: #1a5da8;
-  img {
-    position: absolute;
-    left: px2rem(45px);
-    top: 50%;
-    transform: translateY(-50%);
-    height: px2rem(81px);
-  }
-  & > div {
-    padding-left: px2rem(125px);
-  }
-  p {
-    //@include px2px(font-size, 30px);
-    font-size: px2rem(30px);
-    color: #fff;
-    //line-height: 1.5;
-    &:nth-of-type(1) {
-      margin-bottom: px2rem(20px);
-    }
-  }
-}
