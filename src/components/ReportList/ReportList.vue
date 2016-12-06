@@ -57,19 +57,21 @@
         this.postOptions.keyword = searchValue
         this.$http.post('/list', this.postOptions, {emulateJSON: true})
           .then(function (response) {
-            if (response.data.result[0].downloads < response.data.result[response.data.result.length - 1].downloads) {
+            if (response.data.result.length > 0 && response.data.result[0].downloads < response.data.result[response.data.result.length - 1].downloads) {
               response.data.result.reverse()
             }
             if (this.isFirstLoad) {
               this.listData = response.data
             } else {
-              this.listData.result.push(response.data.result)
+              this.listData.result = this.listData.result.concat(response.data.result)
+            }
+            debugger
+            if (this.listData.pageSize <= this.postOptions.begin) {
+              this.isListNotEnd = false
+            } else {
+              this.postOptions.begin++
             }
             this.isLoading = false
-            if (this.listData.pageSize <= this.postOptions.begin) {
-              this.postOptions.begin++
-              this.isListNotEnd = false
-            }
           })
           .catch(function (err) {
             this.isLoading = false
@@ -78,9 +80,9 @@
           })
       },
       loadMore: function (e) {
-        if (this.listNotEnd) {
-          let itemsHeight = document.getElementsByClassName('result-item-container').scrollHeight
-          let containerHeight = e.currentTarget.scrollHeight
+        if (this.isListNotEnd && !this.isLoading) {
+          let itemsHeight = document.getElementsByClassName('result-item-container')[0].scrollHeight
+          let containerHeight = e.currentTarget.offsetHeight
           let containerScrollTop = Math.abs(e.currentTarget.scrollTop)
           let diffH = 150
           if (itemsHeight - containerHeight - containerScrollTop < diffH) {

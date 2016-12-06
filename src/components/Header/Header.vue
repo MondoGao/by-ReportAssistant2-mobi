@@ -5,10 +5,11 @@
       <input type="text" id="search-input" placeholder="搜索学院或文档"
       @focus="toggleSubmit"
       @blur="toggleSubmit"
-      @keyup="search">
+      @keyup.enter="search"
+      v-model="searchStr">
     </div>
     <a href="javascript:;"
-       @click="toggleSubmit"
+       @click="toggleSubmit(), search()"
        :class="{'cancel-btn':true, show: showSubmit}">搜索</a>
   </header>
 </template>
@@ -18,7 +19,8 @@
     name: 'header-search',
     data () {
       return {
-        showSubmit: false
+        showSubmit: false,
+        searchStr: ''
       }
     },
     computed: {
@@ -27,10 +29,8 @@
       toggleSubmit: function () {
         this.showSubmit = (document.activeElement === document.getElementById('search-input'))
       },
-      search: function (e) {
-        if (e.keyCode === 13) {
-          this.$root._bus.$emit('search', e.target.value)
-        }
+      search: function () {
+        this.$root._bus.$emit('search', this.searchStr)
       }
     },
     mounted: function () {

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <header-search></header-search>
-    <report-list></report-list>
+    <router-view name="header"></router-view>
+    <router-view name="content"></router-view>
   </div>
 </template>
 
