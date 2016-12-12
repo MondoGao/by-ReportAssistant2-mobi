@@ -55,20 +55,7 @@
         return require('../../assets/' + type + '.png')
       }
     },
-    methods: {
-//      getChildrenIndex: function (el) {
-//        // IE is simplest and fastest
-//        if (el.sourceIndex) {
-//          return el.sourceIndex - el.parentNode.sourceIndex - 1
-//        }
-//        // other browsers
-//        let i = 0
-//        while (el = el.previousElementSibling) {
-//          i++
-//        }
-//        return i
-//      }
-    }
+    methods: {}
   }
 </script>
 
