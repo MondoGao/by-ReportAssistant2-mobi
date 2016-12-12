@@ -8,9 +8,9 @@
       @keyup.enter="search"
       v-model="searchStr">
     </div>
-    <a href="javascript:;"
+    <div
        @click="toggleSubmit(), search()"
-       :class="{'cancel-btn':true, show: showSubmit}">搜索</a>
+       :class="{'cancel-btn':true, show: showSubmit}">搜索</div>
   </header>
 </template>
 

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import ListItem from './ListItem/ListItem'
+  import ReportMeta from '../ReportMeta/ReportMeta'
 
   export default {
     name: 'report-list',
@@ -40,6 +40,15 @@
         }
       }
     },
+    beforeRouteEnter (to, from, next) {
+      next(vm => {
+        vm.$el.scrollTop = sessionStorage.scrollTop
+      })
+    },
+    beforeRouteLeave (to, from, next) {
+      sessionStorage.scrollTop = this.$el.scrollTop
+      next()
+    },
     computed: {
       isListEmpty: function () {
         return this.isFirstLoad ? true : (this.listData.result.length === 0)
@@ -49,7 +58,7 @@
       }
     },
     components: {
-      'list-item': ListItem
+      'list-item': ReportMeta
     },
     methods: {
       getData: function (searchValue) {
@@ -65,7 +74,6 @@
             } else {
               this.listData.result = this.listData.result.concat(response.data.result)
             }
-            debugger
             if (this.listData.pageSize <= this.postOptions.begin) {
               this.isListNotEnd = false
             } else {

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <router-view name="header"></router-view>
-    <router-view name="content"></router-view>
+    <keep-alive>
+      <router-view name="reportList"></router-view>
+    </keep-alive>
   </div>
 </template>
 

@@ -18,9 +18,17 @@ npm run build
 ## 更新记录
 ### Unreleased
 #### Added
-- 使用 vue-router 进行至详情页的切换
 - 根据路由情况调整组件层级，增加 Index 模块和 ReportDetail 模块
-- 完成详情页 ReportInfo, ReportPreview, ReportDownload 组件的样式和功能
+, ReportPreview, ReportDownload 组件的样式和功能
+
+### 0.2.0 - 2016-12-12
+####　Added
+- 使用 vue-router 进行至详情页的切换
+- 完成详情页 ReportInfo 组件
+- 增加更完善的返回位置纪录
+
+#### Fixed
+- 修复路由切换逻辑
 
 ### 0.1.0 - 2016-12-05
 #### Added

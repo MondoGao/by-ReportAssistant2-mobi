@@ -1,6 +1,8 @@
 <template>
-  <div class="result-item"
-    @click="jumpDetail">
+  <router-link class="result-item"
+               :to="{ name: 'reportDetail', params: { id: meta.document_id } }"
+               v-if="meta !== undefined"
+               tag="div">
     <img class="result-filetype-icon"
          :src="fileType">
     <h3 class="filename">{{ meta.document_name }}</h3>
@@ -14,13 +16,17 @@
       v-if="meta.document_thumb">
       {{ meta.document_thumb }}
     </p>
-  </div>
+  </router-link>
 </template>
 
 <script>
   export default {
-    name: 'list-item',
-    props: ['meta'],
+    name: 'report-meta',
+    props: {
+      'meta': {
+        required: true
+      }
+    },
     data () {
       return {}
     },
@@ -46,32 +52,24 @@
           default:
             type = 'zip'
         }
-        return require('../../../assets/' + type + '.png')
+        return require('../../assets/' + type + '.png')
       }
     },
     methods: {
-      jumpDetail: function (e) {
-        window.sessionStorage.setItem('lastItem', this.getChildrenIndex(e.currentTarget))
-
-        let url = './report_detail.html?document_id='
-        let documentId = encodeURIComponent(this.meta.document_id)
-        url = url + documentId
-        window.location.href = url
-      },
-      getChildrenIndex: function (el) {
-        // IE is simplest and fastest
-        if (el.sourceIndex) {
-          return el.sourceIndex - el.parentNode.sourceIndex - 1
-        }
-        // other browsers
-        let i = 0
-        while (el = el.previousElementSibling) {
-          i++
-        }
-        return i
-      }
+//      getChildrenIndex: function (el) {
+//        // IE is simplest and fastest
+//        if (el.sourceIndex) {
+//          return el.sourceIndex - el.parentNode.sourceIndex - 1
+//        }
+//        // other browsers
+//        let i = 0
+//        while (el = el.previousElementSibling) {
+//          i++
+//        }
+//        return i
+//      }
     }
   }
 </script>
 
-<style lang="scss" src="./ListItem.scss"></style>
+<style lang="scss" src="./ReportMeta.scss"></style>

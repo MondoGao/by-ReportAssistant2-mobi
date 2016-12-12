@@ -5,6 +5,8 @@ import VueResource from 'vue-resource'
 import App from './App'
 import Header from './components/Header/Header'
 import ReportList from './components/ReportList/ReportList'
+import ReportMeta from './components/ReportMeta/ReportMeta'
+import ReportDetail from './components/ReportDetail/ReportDetail'
 
 import FastClick from 'fastclick'
 
@@ -18,6 +20,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'history',
   base: '/',
+  saveScrollPosition: true,
   routes: [
     {
       path: '/',
@@ -26,7 +29,13 @@ const router = new VueRouter({
       path: '/index',
       components: {
         header: Header,
-        content: ReportList
+        reportList: ReportList
+      }
+    }, {
+      path: '/reportDetail/:id',
+      name: 'reportDetail',
+      components: {
+        header: ReportDetail
       }
     }
   ]

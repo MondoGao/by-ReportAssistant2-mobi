@@ -60,7 +60,6 @@
 .cancel-btn {
   display: table-cell;
   vertical-align: middle;
-  font-size: 0;
   color: #6e6e6f;
   @include px2px(font-size, 32px);
   text-indent: px2rem(-100px);
