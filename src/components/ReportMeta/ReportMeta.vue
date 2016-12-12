@@ -1,7 +1,6 @@
 <template>
   <router-link class="result-item"
                :to="{ name: 'reportDetail', params: { id: meta.document_id } }"
-               v-if="meta !== undefined"
                tag="div">
     <img class="result-filetype-icon"
          :src="fileType">

@@ -1,0 +1,113 @@
+@import "~src/scss/func";
+
+.detail-container {
+  height: 100%;
+}
+
+.report-download-info {
+  @include px2px(font-size, 24px);
+  margin-top: px2rem(12px);
+  color: #aaa;
+}
+
+.report-preview-container {
+  position: relative;
+  padding-top: px2rem(20px);
+  height: 60%;
+  &.fullscreen {
+    #ifr-container {
+      position: fixed;
+      top: 0;
+    }
+    #btn-type-info {
+      opacity: 0;
+    }
+    #btn-fullscreen {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      text-align: right;
+      &::before {
+        content: '\e902  退出全屏';
+      }
+    }
+  }
+
+  img {
+    position: absolute;
+    width: px2rem(415px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.report-type-info {
+  position: absolute;
+  top: px2rem(10px);
+  left: 0;
+  padding: px2rem(12px) px2rem(16px);
+  background-color: #2b5796;
+  color: #fff;
+  @include px2px(font-size, 24px);
+  z-index: 2;
+  transform: translate(0, 0);
+  transition: opacity .5s, transform .5s;
+  &.scroll {
+    transform: translate(0, -20%);
+    opacity: 0.3;
+    display: block;
+  }
+}
+
+#btn-fullscreen {
+  left: auto;
+  right: 0;
+  &::before {
+    content: '\e903  全屏';
+    font-family: 'icomoon';
+  }
+}
+
+#ifr-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+.report-download {
+  padding-top: px2rem(20px);
+  text-align: center;
+}
+
+.download-btn {
+  display: inline-block;
+  @include px2px(font-size, 26px);
+  color: #fff;
+  background-color: #2b5796;
+  padding: px2rem(20px) px2rem(100px);
+  border-radius: 20px;
+}
+
+.report-download-container {
+  width: 60%;
+  margin: 0 auto;
+  p {
+    line-height: 1.2;
+    color: #292929;
+    @include px2px(font-size, 26px);
+  }
+  .report-download-id {
+    margin-top: px2rem(20px);
+    span {
+      display: inline-block;
+      padding: px2rem(15px) px2rem(45px);
+      background-color: #2b5796;
+      color: #fff;
+      @include px2px(font-size, 28px);
+      border-radius: 20px;
+    }
+  }
+}

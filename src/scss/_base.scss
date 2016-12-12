@@ -9,6 +9,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   overflow: hidden;
+  background-color: #e6e6e6;
 }
 
 body {
@@ -31,4 +32,8 @@ textarea {
   padding: 0;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+#app {
+  height: 100%;
 }
