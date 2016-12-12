@@ -12,18 +12,49 @@
   border-bottom: 1px solid #d9d9d9;
 }
 
-.back-home {
+.catalog {
   display: table-cell;
-  width: px2rem(80px);
+  position: relative;
+  padding-left: px2rem(25px);
+  width: px2rem(120px);
   vertical-align: middle;
-  text-align: center;
-
-  // 删除高度，高度加伪元素会导致父元素被撑大，原因是由于内部元素 baseline 对齐
-  &::before {
-    content: '\e901';
+  text-align: left;
+  @include px2px(font-size, 32px);
+  color: #6e6e6f;
+  overflow: visible;
+  &::after {
+    content: '\e905';
     font-family: 'icomoon';
-    color: #c9c9c9;
-    font-size: px2rem(45px);
+  }
+  &.show-catalog::after {
+    content: '\e904';
+    font-family: 'icomoon';
+  }
+  .black-layout {
+    position: fixed;
+    display: block;
+    top: px2rem(91px);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1;
+    ul {
+      display: block;
+      width: 65%;
+      height: 100%;
+      background-color: #fff;
+      overflow-y: auto;
+      li {
+        display: block;
+        padding-left: px2rem(30px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 2.5;
+        border: 1px solid #f2f2f2;
+      }
+    }
   }
 }
 
@@ -52,12 +83,12 @@
     border-radius: 5px;
     color: #6e6e6f;
     padding-left: px2rem(60px);
-    font-size: px2rem(32px);
+    @include px2px(font-size, 30px);
     box-sizing: border-box;
   }
 }
 
-.cancel-btn {
+.search-btn {
   display: table-cell;
   vertical-align: middle;
   color: #6e6e6f;
@@ -70,3 +101,21 @@
   }
 }
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+}
+.slide-enter-active, .slide-leave-active {
+  transition: transform .3s;
+}
+.slide-enter, .slide-leave-active {
+   transform: translateX(-100%);
+ }
+.list-enter-active, .list-leave-active {
+  transition: transform .3s;
+}
+.list-enter, .list-leave-active {
+  transform: translateX(-100%);
+}
