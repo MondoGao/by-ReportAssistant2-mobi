@@ -2,6 +2,7 @@
 
 .detail-container {
   height: 100%;
+  overflow-y: auto;
 }
 
 .report-download-info {
@@ -12,8 +13,9 @@
 
 .report-preview-container {
   position: relative;
-  padding-top: px2rem(20px);
+  margin-top: px2rem(20px);
   height: 60%;
+  background-color: #fff;
   &.fullscreen {
     #ifr-container {
       position: fixed;
@@ -44,7 +46,7 @@
 
 .report-type-info {
   position: absolute;
-  top: px2rem(10px);
+  top: 0;
   left: 0;
   padding: px2rem(12px) px2rem(16px);
   background-color: #2b5796;
