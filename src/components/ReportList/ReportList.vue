@@ -88,6 +88,7 @@
           })
       },
       loadMore: function (e) {
+        this.$root._bus.$emit('blur')
         if (this.isListNotEnd && !this.isLoading) {
           let itemsHeight = document.getElementsByClassName('result-item-container')[0].scrollHeight
           let containerHeight = e.currentTarget.offsetHeight
@@ -97,17 +98,22 @@
             this.getData(this.postOptions.keyword)
           }
         }
+      },
+      search (searchValue) {
+        this.listData = {}
+        this.isListNotEnd = true
+        this.postOptions.begin = 1
+        this.$nextTick(function () {
+          this.getData(searchValue)
+        })
       }
     },
     mounted: function () {
       this.getData('')
       let self = this
-      this.$root._bus.$on('search', function (searchValue) {
-        self.listData = {}
-        self.postOptions.begin = 1
-        self.$nextTick(function () {
-          self.getData(searchValue)
-        })
+      this.$root._bus.$on('search', this.search)
+      this.$root._bus.$on('reset', function () {
+        self.search('')
       })
     }
   }

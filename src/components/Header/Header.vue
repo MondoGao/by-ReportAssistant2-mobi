@@ -30,10 +30,21 @@
         this.showSubmit = (document.activeElement === document.getElementById('search-input'))
       },
       search: function () {
+        this.$router.push({
+          path: '/search'
+        })
         this.$root._bus.$emit('search', this.searchStr)
       }
     },
     mounted: function () {
+      var self = this
+      this.$root._bus.$on('blur', function () {
+        document.getElementById('search-input').blur()
+        self.toggleSubmit()
+      })
+      this.$root._bus.$on('reset', function () {
+        self.searchStr = ''
+      })
     }
   }
 </script>

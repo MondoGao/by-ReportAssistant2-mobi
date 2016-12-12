@@ -19,6 +19,10 @@ npm run build
 ### Unreleased
 #### Added
 
+### 0.3.0 - 2016-12-12
+#### Added
+- 增加从搜索按返回键返回到主页的功能
+
 ### 0.2.0 - 2016-12-12
 ####　Added
 - 使用 vue-router 进行至详情页的切换
@@ -30,6 +34,7 @@ npm run build
 #### Fixed
 - 修复路由切换逻辑
 - 修复与 flexible 配置不相容的 bug
+- 修复某些情况下下拉不再加载数据的 bug
 
 ### 0.1.0 - 2016-12-05
 #### Added
