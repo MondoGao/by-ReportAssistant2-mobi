@@ -22,6 +22,7 @@
   @include px2px(font-size, 32px);
   color: #6e6e6f;
   overflow: visible;
+  white-space: nowrap;
   &::after {
     content: '\e905';
     font-family: 'icomoon';
@@ -39,6 +40,9 @@
     left: 0;
     background-color: rgba(0, 0, 0, .5);
     z-index: 1;
+    div {
+      height: 100%;
+    }
     ul {
       display: block;
       width: 65%;
@@ -113,9 +117,14 @@
 .slide-enter, .slide-leave-active {
    transform: translateX(-100%);
  }
+
 .list-enter-active, .list-leave-active {
-  transition: transform .3s;
+  display: block !important;
+  transition: all .6s;
 }
 .list-enter, .list-leave-active {
-  transform: translateX(-100%);
+  transform: translateX(-350px);
+  opacity: 0;
 }
+
+

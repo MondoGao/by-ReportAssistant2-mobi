@@ -9,15 +9,14 @@
               <transition-group tag="ul" name="list">
                 <li v-for="(value, index) of catalog"
                     :key="index"
+                    :style="{ transitionDelay: 0.02 * index + 's' }"
                     v-show="isShowCatalog"
-                    :style="{ transition-delay: 0.3 * index + 's' }"
                     @click="clickCatalog">{{ value }}</li>
               </transition-group>
             </div>
           </transition>
         </div>
-      </transition>分类<!--
-      --></div>
+      </transition>分类<icon></icon></div>
     <div class="search-input-field">
       <input type="text" id="search-input" placeholder="搜索学院或文档"
       @focus="toggleSubmit"
