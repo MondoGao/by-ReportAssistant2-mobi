@@ -11,7 +11,7 @@
         <template v-if="meta.preview">
           <div id="btn-type-info" :class="{ 'report-type-info': true, scroll: isScrolling }">{{ meta.type }}文档预览</div>
           <div id="btn-fullscreen" :class="{ 'report-type-info': true, scroll: isScrolling }"
-            @click="isFullScreen = !isFullScreen"></div>
+            @touchstart="isFullScreen = !isFullScreen"></div>
           <iframe :src="meta.preview" id="ifr-container"
             @load="previewLoad"></iframe>
         </template>
@@ -53,7 +53,7 @@
         this.$http.get('/document_detail/' + id + '/mobi', {emulateJSON: true})
           .then(function (response) {
             /* Todo: dev */
-            response.data.result.preview = response.data.result.preview.replace('report.hustonline.net', 'localhost:8080')
+            response.data.result.preview = response.data.result.preview.replace('report.hustonline.net', '192.168.1.116:8080')
 
             this.meta = response.data.result
             document.title = '我在"报告菌"上找到了' + this.meta.document_name + ',这下不用担心了'
@@ -70,7 +70,7 @@
           _scrollTop = e.target.scrollTop
           if (deltaTop > 10) {
             this.isScrolling = true
-          } else if (deltaTop < 0) {
+          } else if (deltaTop < -4) {
             this.isScrolling = false
           }
         }
