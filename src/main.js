@@ -28,6 +28,10 @@ const router = new VueRouter({
       redirect: '/index'
     },
     {
+      path: '/mobile/index.html',
+      redirect: '/index'
+    },
+    {
       path: '/index',
       components: {
         header: Header,
