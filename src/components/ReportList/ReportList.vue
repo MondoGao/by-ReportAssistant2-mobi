@@ -12,7 +12,7 @@
         <span class="end-line-info">END</span>
       </div>
     </div>
-    <img src="~assets/not-found-report.png" class="not-found-report"
+    <img src="~src/assets/not-found-report.png" class="not-found-report"
          v-show="!isFirstLoad && isListEmpty">
     <div class="mask-layer"
          v-if="isLoading">
