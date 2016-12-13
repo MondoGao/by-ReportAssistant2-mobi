@@ -17,6 +17,9 @@ npm run build
 
 ## 更新记录
 ### 0.3.2 - 2016-12-13
+#### Added
+- 增加桌面端的判断和跳转
+
 #### Changed
 - 更改配置中的上线目录以及 index.html 中错误的 static 绝对路径
 
