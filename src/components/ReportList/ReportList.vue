@@ -63,6 +63,7 @@
     methods: {
       getData: function (searchValue) {
         this.isLoading = true
+        searchValue = searchValue || ''
         this.postOptions.keyword = searchValue
         this.$http.post('/list', this.postOptions, {emulateJSON: true})
           .then(function (response) {

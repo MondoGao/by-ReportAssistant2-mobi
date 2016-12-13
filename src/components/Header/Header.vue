@@ -8,10 +8,11 @@
             <div v-show="isShowCatalog">
               <transition-group tag="ul" name="list">
                 <li v-for="(value, index) of catalog"
-                    :key="index"
-                    :style="{ transitionDelay: 0.02 * index + 's' }"
+                    :key="index + 1"
                     v-show="isShowCatalog"
-                    @click="clickCatalog">{{ value.name }}</li>
+                    :style="{ transitionDelay: 0.02 * index + 's' }"
+                    @click="clickCatalog"
+                    :data-search="value.searchStr">{{ value.name }}</li>
               </transition-group>
             </div>
           </transition>
@@ -46,22 +47,22 @@
         catalog: [
           new Catalog('全部', ''),
           new Catalog('公选课', '公选课'),
-          new Catalog('实验报告', ''),
-          new Catalog('自动化学院', ''),
-          new Catalog('电子信息与通信学院', ''),
-          new Catalog('软件学院', ''),
-          new Catalog('光学与电子信息学院', ''),
-          new Catalog('计算机科学与技术学院', ''),
-          new Catalog('电气与电子工程学院', ''),
-          new Catalog('材料科学与工程学院', ''),
-          new Catalog('生命科学与技术学院', ''),
-          new Catalog('化学与化工学院', ''),
-          new Catalog('物理学院', ''),
-          new Catalog('数学与统计学院', ''),
-          new Catalog('新闻与信息传播学院', ''),
-          new Catalog('建筑与城市规划学院', ''),
-          new Catalog('土木科学与工程学院', ''),
-          new Catalog('能源与动力工程学院', '')
+          new Catalog('实验报告', '实验报告'),
+          new Catalog('自动化学院', '自动化学院'),
+          new Catalog('电子信息与通信学院', '电子信息与通信学院'),
+          new Catalog('软件学院', '软件学院'),
+          new Catalog('光学与电子信息学院', '光学与电子信息学院'),
+          new Catalog('计算机科学与技术学院', '计算机学院'),
+          new Catalog('电气与电子工程学院', '电气与电子工程学院'),
+          new Catalog('材料科学与工程学院', '材料科学与工程学院'),
+          new Catalog('生命科学与技术学院', '生命科学与技术学院'),
+          new Catalog('化学与化工学院', '化学与化工学院'),
+          new Catalog('物理学院', '物理学院'),
+          new Catalog('数学与统计学院', '数学与统计学院'),
+          new Catalog('新闻与信息传播学院', '新闻与信息传播学院'),
+          new Catalog('建筑与城市规划学院', '建筑与城市规划学院'),
+          new Catalog('土木科学与工程学院', '土木科学与工程学院'),
+          new Catalog('能源与动力工程学院', '能源与动力工程学院')
         ]
       }
     },
@@ -78,7 +79,7 @@
         this.$root._bus.$emit('search', this.searchStr)
       },
       clickCatalog (e) {
-        this.searchStr = e.srcElement.innerText
+        this.searchStr = e.srcElement.dataset.search
         this.search()
       }
     },
