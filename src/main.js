@@ -25,34 +25,34 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/index'
+      redirect: '/mobile/index'
     },
     {
       path: '/mobile/index.html',
-      redirect: '/index'
+      redirect: '/mobile/index'
     },
     {
-      path: '/index',
+      path: '/mobile/index',
       components: {
         header: Header,
         reportList: ReportList
       },
       beforeEnter: (to, from, next) => {
-        if (from.path === '/search') {
+        if (from.path === '/mobile/search') {
           vm._bus.$emit('reset')
         }
         next()
       }
     },
     {
-      path: '/reportDetail/:id',
+      path: '/mobile/reportDetail/:id',
       name: 'reportDetail',
       components: {
         header: ReportDetail
       }
     },
     {
-      path: '/search',
+      path: '/mobile/search',
       name: 'search',
       components: {
         header: Header,

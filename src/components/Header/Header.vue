@@ -74,7 +74,7 @@
       },
       search: function () {
         this.$router.push({
-          path: '/search'
+          name: 'search'
         })
         this.$root._bus.$emit('search', this.searchStr)
       },

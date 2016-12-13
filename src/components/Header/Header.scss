@@ -65,6 +65,7 @@
 .search-input-field {
   display: table-cell;
   position: relative;
+  padding-right: px2rem(20px);
   width: auto;
   vertical-align: middle;
 
@@ -98,10 +99,10 @@
   color: #6e6e6f;
   @include px2px(font-size, 32px);
   text-indent: px2rem(-100px);
-  transition: text-indent .3s, padding .3s;
+  transition: text-indent .3s;
+  white-space: nowrap;
   &.show {
     text-indent: 0;
-    padding-left: px2rem(10px);
   }
 }
 

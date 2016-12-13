@@ -53,7 +53,7 @@
         this.$http.get('/document_detail/' + id + '/mobi', {emulateJSON: true})
           .then(function (response) {
             /* Todo: dev */
-            response.data.result.preview = response.data.result.preview.replace('report.hustonline.net', '192.168.1.116:8080')
+//            response.data.result.preview = response.data.result.preview.replace('report.hustonline.net', '192.168.1.116:8080')
 
             this.meta = response.data.result
             document.title = '我在"报告菌"上找到了' + this.meta.document_name + ',这下不用担心了'
