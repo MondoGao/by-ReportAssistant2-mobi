@@ -15,7 +15,7 @@
     <img src="~src/assets/not-found-report.png" class="not-found-report"
          v-show="!isFirstLoad && isListEmpty">
     <div class="mask-layer"
-         v-if="isLoading">
+         v-if="isFirstLoad && isLoading">
       <img src="~assets/loading.gif" class="loading-icon">
     </div>
   </section>

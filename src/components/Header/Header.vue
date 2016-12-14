@@ -6,14 +6,11 @@
         <div class="black-layout" v-show="isShowCatalog">
           <transition name="slide">
             <div v-show="isShowCatalog">
-              <transition-group tag="ul" name="list">
+              <ul>
                 <li v-for="(value, index) of catalog"
-                    :key="index + 1"
-                    v-show="isShowCatalog"
-                    :style="{ transitionDelay: 0.02 * index + 's' }"
                     @click="clickCatalog"
                     :data-search="value.searchStr">{{ value.name }}</li>
-              </transition-group>
+              </ul>
             </div>
           </transition>
         </div>
